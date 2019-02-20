@@ -44,6 +44,8 @@ def greet_person():
 @app.route('/game')
 def show_madlib_form():
 
+    color_list = ['red','green','blue','yellow','purple']
+
     response = request.args.get("response")
 
     print(response)
@@ -51,7 +53,7 @@ def show_madlib_form():
     if response == "no":
         return render_template("goodbye.html")
     else:
-        return render_template("game.html")
+        return render_template("game.html",colors=color_list)
 
 @app.route('/madlib')
 def show_madlib():
